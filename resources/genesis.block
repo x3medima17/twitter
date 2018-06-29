@@ -1,0 +1,61 @@
+{
+  "payload": {
+    "transactions": [
+      {
+        "payload": {
+          "commands": [
+            {
+              "addPeer": {
+                "peer": {
+                  "address": "localhost:10001",
+                  "peerKey": "Xl+GhX1Ljn4yU1yc8sWxz5xEyOUAfvICPtEfVyfgvHk="
+                }
+              }
+            },
+            {
+              "createRole": {
+                "roleName": "admin",
+                "permissions": [
+                  "can_get_blocks"
+                ]
+              }
+            },
+            {
+              "createRole": {
+                "roleName": "user",
+                "permissions": [
+                  "can_set_detail"
+                ]
+              }
+            },
+            {
+              "createDomain": {
+                "domainId": "main",
+                "defaultRole" : "admin"
+              }
+            },
+            {
+              "createAccount":{
+                "accountName":"admin",
+                "domainId":"main",
+                "mainPubkey":"7rW5Xiknq2FHwc6lB/u0ZSSSlrz0s46K8DfZFj1mCWo="
+              }
+            },
+            {
+              "createAccount":{
+                "accountName":"bob",
+                "domainId":"main",
+                "mainPubkey":"OGdu3D3x+yNpI5V0lHnzu7XBBkRLqg4Y6GciJacOUME="
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "txNumber": 1,
+    "height": "1",
+    "prevBlockHash": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
+  }
+}
+
+

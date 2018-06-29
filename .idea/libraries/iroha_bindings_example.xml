@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="iroha-bindings-example">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/iroha_bindings/iroha-bindings-example.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

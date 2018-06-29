@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: com.xenomachina:kotlin-argparser:2.0.6">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.xenomachina/kotlin-argparser/2.0.6/ef7e144821e64134a07dda23423c1a5563cf6cd2/kotlin-argparser-2.0.6.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.xenomachina/kotlin-argparser/2.0.6/1eb702129a7b325f49f337cbc95ab75a5b159cb/kotlin-argparser-2.0.6-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
