@@ -1,29 +1,34 @@
+import jp.co.soramitsu.iroha.java.*
+import java.time.Instant
 
-fun main(args: Array<String>) {
-    try {
-        System.loadLibrary("irohajava")
-    } catch (e: UnsatisfiedLinkError) {
-        System.err.println("Native code library failed to load. \n$e")
-        System.exit(1)
+
+val adminKeys = Utils.parseHexKeypair(
+        "313a07e6384776ed95447710d15e59148473ccfc052a681317a72a69f2a49910",
+        "f101537e319568c765b2cc89698325604991dca57b9716b58016b253506cab70"
+)
+
+val adminId = "admin@test"
+var irohaAPI = IrohaAPI("18.191.181.237", 50051)
+
+fun main() {
+
+    val query = BlocksQueryBuilder(adminId, Instant.now(), 1)
+            .buildSigned(adminKeys)
+
+    val obs = irohaAPI.blocksQuery(query).map { response ->
+        response.blockResponse.block
+    }
+
+    obs.blockingSubscribe { block ->
+        block.blockV1.payload.transactionsList
+                .flatMap { it.payload.reducedPayload.commandsList }
+                .filter { it.hasSetAccountDetail() }
+                .map{ it.setAccountDetail }
+                .filter { it.key == "tweet" }
+                .forEach {
+                    println("${it.accountId} : ${it.value}")
+                }
     }
 
 
-    val listener = BlockListener()
-    listener.getBlockObservable().subscribe({
-        val block = it
-        val resp = block.blockResponse
-        resp.block.payload.transactionsList
-            .flatMap { it.payload.commandsList }
-            .filter { it.hasSetAccountDetail() }
-            .filter { it.setAccountDetail.key == "tweet" }
-            .forEach {
-                val author = it.setAccountDetail.accountId
-                val value = it.setAccountDetail.value
-                println("$author -- $value")
-            }
-
-    })
 }
-
-
-
