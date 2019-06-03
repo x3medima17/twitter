@@ -27,7 +27,7 @@ sourceCompatibility = 1.8
 allprojects {
     dependencies {
         // IPJ
-        compile('com.github.hyperledger.iroha-java:client:master-SNAPSHOT')
+        compile 'com.github.hyperledger.iroha-java:client:4.0.0'
     }
 }
 
@@ -38,6 +38,7 @@ wrapper {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+
 }
 compileKotlin {
     kotlinOptions {

@@ -1,0 +1,28 @@
+version: '3.5'
+
+services:
+  iroha:
+    image: hyperledger/iroha:1.0.0
+    container_name: iroha
+    ports:
+      - 50051:50051
+      - 10001:10001
+    depends_on:
+      - iroha-postgres
+    tty: true
+    environment:
+      - KEY=node0
+    entrypoint:
+      - /opt/iroha_data/entrypoint.sh
+    volumes:
+      - ./:/opt/iroha_data
+#      - ./genesis.block:/opt/iroha_data/genesis.block
+
+
+  iroha-postgres:
+    image: postgres:9.5
+    container_name: iroha-postgres
+    environment:
+      - POSTGRES_PASSWORD=mysecretpassword
+    expose:
+      - 5432

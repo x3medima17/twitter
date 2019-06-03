@@ -8,7 +8,7 @@ fun main() {
             .sign(adminKeys)
             .build()
     irohaAPI.transactionSync(tx)
-    repeat(10) {
+    repeat(50) {
         println(irohaAPI.txStatusSync(Utils.hash(tx)))
         Thread.sleep(100)
     }

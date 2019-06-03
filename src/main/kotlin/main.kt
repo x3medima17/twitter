@@ -8,7 +8,7 @@ val adminKeys = Utils.parseHexKeypair(
 )
 
 val adminId = "admin@test"
-var irohaAPI = IrohaAPI("18.191.181.237", 50051)
+var irohaAPI = IrohaAPI("localhost", 50051)
 
 fun main() {
 
